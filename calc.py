@@ -19,7 +19,7 @@ btnCE = QPushButton("CE")
 line.addWidget(btnCE)
 btnC = QPushButton("C")
 line.addWidget(btnC)
-btnDel = QPushButton("<")
+btnDel = QPushButton("«")
 line.addWidget(btnDel)
 
 box.addLayout(line)
@@ -71,6 +71,19 @@ btnplus = QPushButton("+")
 line5.addWidget(btnplus)
 
 box.addLayout(line5)
+
+line6 = QHBoxLayout()
+btnposneg = QPushButton("+/-")
+line6.addWidget(btnposneg)
+btn0 = QPushButton("0")
+line6.addWidget(btn0)
+btndot= QPushButton(".")
+line6.addWidget(btndot)
+btnequal = QPushButton("=")
+line6.addWidget(btnequal)
+
+
+box.addLayout(line6)
 
 win.setLayout(box)
 
