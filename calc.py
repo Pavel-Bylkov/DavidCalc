@@ -25,7 +25,7 @@ line.addWidget(btnDel)
 box.addLayout(line)
 
 line2 = QHBoxLayout()  # для горизонтального размещения виджетов
-btn1x = QPushButton("1÷x")
+btnreciprocal = QPushButton("1÷x")
 line2.addWidget(btnreciprocal)
 btnx2 = QPushButton("xª")
 line2.addWidget(btnx2)
