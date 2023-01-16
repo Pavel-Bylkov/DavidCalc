@@ -23,6 +23,41 @@ def all_clear():
     operation = ""
     first_number = 0
 
+def add():
+    global operation, first_number
+    first_number = float(display.text())
+    operation = "+"
+    display.setText("0")
+
+def minus():
+    global operation, first_number
+    first_number = float(display.text())
+    operation = "-"
+    display.setText("0")
+
+def mult():
+    global operation, first_number
+    first_number = float(display.text())
+    operation = "×"
+    display.setText("0")
+
+def div():
+    global operation, first_number
+    first_number = float(display.text())
+    operation = "÷"
+    display.setText("0")
+
+def equal():
+    result = 0
+    if operation == "+":
+        result = first_number + float(display.text())
+    elif operation == "-":
+        result = first_number - float(display.text())
+    elif operation == "×":
+        result = first_number * float(display.text())
+    elif operation == "÷":
+        result = first_number / float(display.text())
+    display.setText(str(result))
 
 app = QApplication([])
 win = QWidget()
@@ -123,6 +158,12 @@ btn9.clicked.connect(lambda: press_num(9))
 btn0.clicked.connect(lambda: press_num(0))
 
 btnC.clicked.connect(all_clear)
+btnplus.clicked.connect(add)
+btnequal.clicked.connect(equal)
+btnmin.clicked.connect(minus)
+btnX.clicked.connect(mult)
+btnDiv.clicked.connect(div)
+
 
 win.show()
 app.exec()
