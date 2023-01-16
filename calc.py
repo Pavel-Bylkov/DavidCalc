@@ -7,6 +7,17 @@ class MyButton(QPushButton):
         super().__init__(*args, **kwargs)
         self.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
 
+def press_num(num):
+    if display.text() != "0":
+        display.setText(display.text() + str(num))
+    else:
+        display.setText(str(num))
+
+def num1():
+    press_num(1)
+
+def num2():
+    press_num(2)
 
 app = QApplication([])
 win = QWidget()
@@ -93,6 +104,10 @@ line6.addWidget(btnequal)
 box.addLayout(line6)
 
 win.setLayout(box)
+
+# привязываем функции обработчики к кнопкам
+btn1.clicked.connect(num1)
+btn2.clicked.connect(num2)
 
 win.show()
 app.exec()
