@@ -19,6 +19,30 @@ def num1():
 def num2():
     press_num(2)
 
+def num3():
+    press_num(3)
+
+def num4():
+    press_num(4)
+
+def num5():
+    press_num(5)
+
+def num6():
+    press_num(6)
+
+def num7():
+    press_num(7)
+
+def num8():
+    press_num(8)
+
+def num9():
+    press_num(9)
+
+def num0():
+    press_num(0)
+
 app = QApplication([])
 win = QWidget()
 
@@ -108,6 +132,13 @@ win.setLayout(box)
 # привязываем функции обработчики к кнопкам
 btn1.clicked.connect(num1)
 btn2.clicked.connect(num2)
-
+btn3.clicked.connect(num3)
+btn4.clicked.connect(num4)
+btn5.clicked.connect(num5)
+btn6.clicked.connect(num6)
+btn7.clicked.connect(num7)
+btn8.clicked.connect(num8)
+btn9.clicked.connect(num9)
+btn0.clicked.connect(num0)
 win.show()
 app.exec()
