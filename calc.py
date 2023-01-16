@@ -2,6 +2,9 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import Qt
 from display import Display
 
+operation = ""
+first_number = 0
+
 class MyButton(QPushButton):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -13,6 +16,12 @@ def press_num(num):
     else:
         display.setText(str(num))
 
+
+def all_clear():
+    global operation, first_number
+    display.setText("0")
+    operation = ""
+    first_number = 0
 
 
 app = QApplication([])
@@ -112,6 +121,8 @@ btn7.clicked.connect(lambda: press_num(7))
 btn8.clicked.connect(lambda: press_num(8))
 btn9.clicked.connect(lambda: press_num(9))
 btn0.clicked.connect(lambda: press_num(0))
+
+btnC.clicked.connect(all_clear)
 
 win.show()
 app.exec()
