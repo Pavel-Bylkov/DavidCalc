@@ -5,7 +5,7 @@ from display import Display
 class MyButton(QPushButton):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.setFixedHeight(45)
+        self.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
 
 
 app = QApplication([])
