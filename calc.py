@@ -47,6 +47,24 @@ def div():
     operation = "÷"
     display.setText("0")
 
+def power():
+    global operation, first_number
+    first_number = float(display.text())
+    operation = "p"
+    display.setText("0")
+
+def posneg():
+    global operation, first_number
+    first_number = float(display.text())
+    operation = "+/-"
+    display.setText("0")
+
+def recip():
+    global operation, first_number
+    first_number = float(display.text())
+    operation = "1/x"
+    display.setText("0")
+
 def equal():
     result = 0
     if operation == "+":
@@ -57,6 +75,12 @@ def equal():
         result = first_number * float(display.text())
     elif operation == "÷":
         result = first_number / float(display.text())
+    elif operation == "p":
+        result = first_number ** float(display.text())
+    elif operation == "+/-":
+        result = first_number * -1
+    elif operation == "1/x":
+        result = 1 / first_number
     display.setText(str(result))
 
 app = QApplication([])
@@ -163,7 +187,9 @@ btnequal.clicked.connect(equal)
 btnmin.clicked.connect(minus)
 btnX.clicked.connect(mult)
 btnDiv.clicked.connect(div)
-
+btnx2.clicked.connect(power)
+btnposneg.clicked.connect(posneg)
+btnreciprocal.clicked.connect(recip)
 
 win.show()
 app.exec()
