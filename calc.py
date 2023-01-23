@@ -5,10 +5,21 @@ from display import Display
 operation = ""
 first_number = 0
 
+
 class MyButton(QPushButton):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
+
+class MyWin(QWidget):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+    def keyPressEvent(self, event):
+        f = key_pressed.get(event.key(), None)
+        if f is not None:
+            f()
+        event.accept()
 
 def press_num(num):
     if display.text() != "0":
@@ -79,8 +90,19 @@ def equal():
         result = first_number ** float(display.text())
     display.setText(str(result))
 
+key_pressed = {Qt.Key_0: lambda: press_num(0),
+               Qt.Key_1: lambda: press_num(1),
+               Qt.Key_2: lambda: press_num(2),
+               Qt.Key_3: lambda: press_num(3),
+               Qt.Key_4: lambda: press_num(4),
+               Qt.Key_5: lambda: press_num(5),
+               Qt.Key_6: lambda: press_num(6),
+               Qt.Key_7: lambda: press_num(7),
+               Qt.Key_division: div,
+               Qt.Key_Plus: add}
+
 app = QApplication([])
-win = QWidget()
+win = MyWin()
 
 win.setWindowTitle("Super Calculator")
 win.resize(300, 400)
