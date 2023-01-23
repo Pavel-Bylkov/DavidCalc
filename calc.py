@@ -98,7 +98,14 @@ key_pressed = {Qt.Key_0: lambda: press_num(0),
                Qt.Key_5: lambda: press_num(5),
                Qt.Key_6: lambda: press_num(6),
                Qt.Key_7: lambda: press_num(7),
-               Qt.Key_division: div,
+               Qt.Key_8: lambda: press_num(8),
+               Qt.Key_9: lambda: press_num(9),
+               Qt.Key_Slash: div,
+               Qt.Key_X: mult,
+               Qt.Key_Asterisk: mult,
+               Qt.Key_Underscore: minus,
+               Qt.Key_Equal: equal
+               Qt.Key_Enter: equal,
                Qt.Key_Plus: add}
 
 app = QApplication([])
