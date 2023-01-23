@@ -1,3 +1,4 @@
+from PyQt5.QtGui import QKeySequence
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import Qt
 from display import Display
@@ -17,6 +18,7 @@ class MyWin(QWidget):
 
     def keyPressEvent(self, event):
         f = key_pressed.get(event.key(), None)
+        print("got a key event of ", event.key())
         if f is not None:
             f()
         event.accept()
@@ -103,9 +105,11 @@ key_pressed = {Qt.Key_0: lambda: press_num(0),
                Qt.Key_Slash: div,
                Qt.Key_X: mult,
                Qt.Key_Asterisk: mult,
-               Qt.Key_Underscore: minus,
-               Qt.Key_Equal: equal
+               Qt.Key_Minus: minus,
+               Qt.Key_Equal: equal,
                Qt.Key_Enter: equal,
+               Qt.Key_Escape: all_clear,
+               # Qt.Key_Period:
                Qt.Key_Plus: add}
 
 app = QApplication([])
