@@ -1,3 +1,5 @@
+import math
+
 from PyQt5.QtGui import QKeySequence
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import Qt
@@ -29,6 +31,9 @@ def press_num(num):
     else:
         display.setText(str(num))
 
+def press_dot():
+    if "." not in display.text():
+        display.setText(display.text() + ".")
 
 def all_clear():
     global operation, first_number
@@ -66,6 +71,12 @@ def power():
     operation = "p"
     display.setText("0")
 
+def sqrt():
+    global operation, first_number
+    first_number = float(display.text())
+    result = math.sqrt(first_number)
+    display.setText(str(result))
+
 def posneg():
     global operation, first_number
     first_number = float(display.text())
@@ -79,7 +90,10 @@ def recip():
     display.setText(str(result))
 
 def equal():
+    global second_number, first_number
     result = 0
+    #if first_number != float(display.text()):
+      #  second_number = float(display.text())
     if operation == "+":
         result = first_number + float(display.text())
     elif operation == "-":
@@ -90,6 +104,8 @@ def equal():
         result = first_number / float(display.text())
     elif operation == "p":
         result = first_number ** float(display.text())
+   # first_number = result
+   # second_number = 0
     display.setText(str(result))
 
 key_pressed = {Qt.Key_0: lambda: press_num(0),
@@ -109,7 +125,7 @@ key_pressed = {Qt.Key_0: lambda: press_num(0),
                Qt.Key_Equal: equal,
                Qt.Key_Enter: equal,
                Qt.Key_Escape: all_clear,
-               # Qt.Key_Period:
+               Qt.Key_Period: press_dot,
                Qt.Key_Plus: add}
 
 app = QApplication([])
@@ -219,6 +235,8 @@ btnDiv.clicked.connect(div)
 btnx2.clicked.connect(power)
 btnposneg.clicked.connect(posneg)
 btnreciprocal.clicked.connect(recip)
+btnSQRT.clicked.connect(sqrt)
+btndot.clicked.connect(press_dot)
 
 win.show()
 app.exec()
