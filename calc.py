@@ -56,14 +56,14 @@ def power():
 def posneg():
     global operation, first_number
     first_number = float(display.text())
-    operation = "+/-"
-    display.setText("0")
+    result = -1 * first_number
+    display.setText(str(result))
 
 def recip():
     global operation, first_number
     first_number = float(display.text())
-    operation = "1/x"
-    display.setText("0")
+    result = 1 / first_number
+    display.setText(str(result))
 
 def equal():
     result = 0
@@ -77,10 +77,6 @@ def equal():
         result = first_number / float(display.text())
     elif operation == "p":
         result = first_number ** float(display.text())
-    elif operation == "+/-":
-        result = first_number * -1
-    elif operation == "1/x":
-        result = 1 / first_number
     display.setText(str(result))
 
 app = QApplication([])
