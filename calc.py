@@ -126,6 +126,7 @@ key_pressed = {Qt.Key_0: lambda: press_num(0),
                Qt.Key_Enter: equal,
                Qt.Key_Escape: all_clear,
                Qt.Key_Period: press_dot,
+               Qt.Key_C: all_clear,
                Qt.Key_Plus: add}
 
 app = QApplication([])
