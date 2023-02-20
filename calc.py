@@ -122,26 +122,26 @@ def equal():
     display.setText(str(result))
 
 
-key_pressed = {Qt.Key_0: lambda: press_num(0),
-               Qt.Key_1: lambda: press_num(1),
-               Qt.Key_2: lambda: press_num(2),
-               Qt.Key_3: lambda: press_num(3),
-               Qt.Key_4: lambda: press_num(4),
-               Qt.Key_5: lambda: press_num(5),
-               Qt.Key_6: lambda: press_num(6),
-               Qt.Key_7: lambda: press_num(7),
-               Qt.Key_8: lambda: press_num(8),
-               Qt.Key_9: lambda: press_num(9),
-               Qt.Key_Slash: div,
-               Qt.Key_X: mult,
-               Qt.Key_Asterisk: mult,
-               Qt.Key_Minus: minus,
-               Qt.Key_Equal: equal,
-               Qt.Key_Enter: equal,
-               Qt.Key_Escape: all_clear,
-               Qt.Key_Period: press_dot,
-               Qt.Key_C: all_clear,
-               Qt.Key_Plus: add}
+key_pressed = {Qt.Key.Key_0: lambda: press_num(0),
+               Qt.Key.Key_1: lambda: press_num(1),
+               Qt.Key.Key_2: lambda: press_num(2),
+               Qt.Key.Key_3: lambda: press_num(3),
+               Qt.Key.Key_4: lambda: press_num(4),
+               Qt.Key.Key_5: lambda: press_num(5),
+               Qt.Key.Key_6: lambda: press_num(6),
+               Qt.Key.Key_7: lambda: press_num(7),
+               Qt.Key.Key_8: lambda: press_num(8),
+               Qt.Key.Key_9: lambda: press_num(9),
+               Qt.Key.Key_Slash: div,
+               Qt.Key.Key_X: mult,
+               Qt.Key.Key_Asterisk: mult,
+               Qt.Key.Key_Minus: minus,
+               Qt.Key.Key_Equal: equal,
+               Qt.Key.Key_Enter: equal,
+               Qt.Key.Key_Escape: all_clear,
+               Qt.Key.Key_Period: press_dot,
+               Qt.Key.Key_C: all_clear,
+               Qt.Key.Key_Plus: add}
 
 app = QApplication([])
 win = MyWin()
