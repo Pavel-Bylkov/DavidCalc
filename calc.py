@@ -12,7 +12,7 @@ first_number = 0
 class MyButton(QPushButton):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
+        # self.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
 
 
 class MyWin(QWidget):
@@ -103,7 +103,7 @@ def recip():
 
 
 def equal():
-    global second_number, first_number
+    global first_number
     result = 0
     # if first_number != float(display.text()):
     #  second_number = float(display.text())
@@ -144,7 +144,7 @@ key_pressed = {Qt.Key.Key_0: lambda: press_num(0),
                Qt.Key.Key_Plus: add}
 
 app = QApplication([])
-win = MyWin()
+win = MyWin(None)
 
 win.setWindowTitle("Super Calculator")
 win.resize(300, 400)
@@ -152,7 +152,7 @@ win.resize(300, 400)
 box = QVBoxLayout()  # для вертикального размещения виджетов
 
 display = Display()  # подключаем свой
-box.addWidget(display, alignment=Qt.AlignRight)
+box.addWidget(display, alignment=Qt.AlignmentFlag.AlignRight)
 
 line = QHBoxLayout()  # для горизонтального размещения виджетов
 btnPerc = MyButton("%")

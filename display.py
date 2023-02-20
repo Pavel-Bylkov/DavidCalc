@@ -1,9 +1,9 @@
 #подключаем модуль с направляющими линиями
-from PyQt5.QtCore import Qt
+from PyQt6.QtCore import Qt
 #подключаем необходимые виджеты
-from PyQt5.QtWidgets import (QWidget, QLabel, QVBoxLayout,
+from PyQt6.QtWidgets import (QWidget, QLabel, QVBoxLayout,
                                QScrollArea)
-from PyQt5.QtGui import QFont
+from PyQt6.QtGui import QFont
 
 # class for scrollable label
 class Display(QScrollArea):
@@ -30,7 +30,7 @@ class Display(QScrollArea):
         self.label.setText("0")
 
         # setting alignment to the text
-        self.label.setAlignment(Qt.AlignRight | Qt.AlignTop)
+        self.label.setAlignment(Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignTop)
 
         # making label multi-line
         # self.label.setWordWrap(True)
