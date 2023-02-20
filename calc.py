@@ -1,8 +1,8 @@
 import math
 
-from PyQt5.QtGui import QKeySequence
-from PyQt5.QtWidgets import *
-from PyQt5.QtCore import Qt
+from PyQt6.QtGui import QKeySequence
+from PyQt6.QtWidgets import *
+from PyQt6.QtCore import Qt
 from display import Display
 
 operation = ""
@@ -13,6 +13,7 @@ class MyButton(QPushButton):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
+
 
 class MyWin(QWidget):
     def __init__(self, *args, **kwargs):
@@ -25,15 +26,18 @@ class MyWin(QWidget):
             f()
         event.accept()
 
+
 def press_num(num):
     if display.text() != "0":
         display.setText(display.text() + str(num))
     else:
         display.setText(str(num))
 
+
 def press_dot():
     if "." not in display.text():
         display.setText(display.text() + ".")
+
 
 def all_clear():
     global operation, first_number
@@ -41,11 +45,13 @@ def all_clear():
     operation = ""
     first_number = 0
 
+
 def add():
     global operation, first_number
     first_number = float(display.text())
     operation = "+"
     display.setText("0")
+
 
 def minus():
     global operation, first_number
@@ -53,11 +59,13 @@ def minus():
     operation = "-"
     display.setText("0")
 
+
 def mult():
     global operation, first_number
     first_number = float(display.text())
     operation = "×"
     display.setText("0")
+
 
 def div():
     global operation, first_number
@@ -65,11 +73,13 @@ def div():
     operation = "÷"
     display.setText("0")
 
+
 def power():
     global operation, first_number
     first_number = float(display.text())
     operation = "p"
     display.setText("0")
+
 
 def sqrt():
     global operation, first_number
@@ -77,11 +87,13 @@ def sqrt():
     result = math.sqrt(first_number)
     display.setText(str(result))
 
+
 def posneg():
     global operation, first_number
     first_number = float(display.text())
     result = -1 * first_number
     display.setText(str(result))
+
 
 def recip():
     global operation, first_number
@@ -89,11 +101,12 @@ def recip():
     result = 1 / first_number
     display.setText(str(result))
 
+
 def equal():
     global second_number, first_number
     result = 0
-    #if first_number != float(display.text()):
-      #  second_number = float(display.text())
+    # if first_number != float(display.text()):
+    #  second_number = float(display.text())
     if operation == "+":
         result = first_number + float(display.text())
     elif operation == "-":
@@ -104,9 +117,10 @@ def equal():
         result = first_number / float(display.text())
     elif operation == "p":
         result = first_number ** float(display.text())
-   # first_number = result
-   # second_number = 0
+    # first_number = result
+    # second_number = 0
     display.setText(str(result))
+
 
 key_pressed = {Qt.Key_0: lambda: press_num(0),
                Qt.Key_1: lambda: press_num(1),
@@ -205,11 +219,10 @@ btnposneg = MyButton("+/-")
 line6.addWidget(btnposneg)
 btn0 = MyButton("0")
 line6.addWidget(btn0)
-btndot= MyButton(".")
+btndot = MyButton(".")
 line6.addWidget(btndot)
 btnequal = MyButton("=")
 line6.addWidget(btnequal)
-
 
 box.addLayout(line6)
 
